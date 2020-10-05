@@ -16,13 +16,10 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'GuestController@index') -> name('employee-index');
-
 Route::get('/home', 'GuestController@home') -> name('home');
-
 Route::get('/show/{id}', 'GuestController@show') -> name('employee-show');
 
 Route::get('/destroy/{id}', 'LoggedController@destroy') -> name('employee-destroy');
-
 Route::get('/edit/{id}', 'LoggedController@edit') -> name('employee-edit');
-
+Route::post('/update/{id}', 'LoggedController@update') -> name('employee-update');
 // Route::get('/home', 'HomeController@index')->name('home');

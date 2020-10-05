@@ -24,4 +24,11 @@ class LoggedController extends Controller
     $locs = Location::all();
     return view('employee-edit', compact('emp', 'locs'));
   }
+
+  public function update(Request $request, $id) {
+      $data = $request -> all();
+      $emp = Employee::findOrFail($id);
+      $emp -> update($data);
+      return redirect() -> route('employee-index');
+  }
 }
