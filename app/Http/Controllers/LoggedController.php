@@ -29,6 +29,17 @@ class LoggedController extends Controller
       $data = $request -> all();
       $emp = Employee::findOrFail($id);
       $emp -> update($data);
-      return redirect() -> route('employee-index');
+      return redirect() -> route('employee-show', $emp -> id);
+  }
+
+  public function create() {
+    $locs = Location::all();
+    return view('employee-create', compact('locs'));
+  }
+
+  public function store(Request $request) {
+    $data = $request -> all();
+    $emp = Employee::create($data);
+    return redirect() -> route('employee-show', $emp -> id);
   }
 }

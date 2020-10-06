@@ -22,4 +22,6 @@ Route::get('/show/{id}', 'GuestController@show') -> name('employee-show');
 Route::get('/destroy/{id}', 'LoggedController@destroy') -> name('employee-destroy');
 Route::get('/edit/{id}', 'LoggedController@edit') -> name('employee-edit');
 Route::post('/update/{id}', 'LoggedController@update') -> name('employee-update');
+Route::get('/create', 'LoggedController@create') -> name('employee-create');
+Route::post('/store', 'LoggedController@store') -> name('employee-store');
 // Route::get('/home', 'HomeController@index')->name('home');

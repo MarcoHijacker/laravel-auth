@@ -9,6 +9,7 @@
                   <div class="card-header">Employees List:</div>
 
                   <div class="card-body">
+                    <a class="btn btn-primary" href="{{ route('employee-create') }}"><i class="fas fa-plus-square"></i> Create New Employee</a><br><br>
                     <ul>
                       @foreach ($emps as $emp)
                         <li>

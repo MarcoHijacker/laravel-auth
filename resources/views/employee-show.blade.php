@@ -17,13 +17,17 @@
                       @auth
                         {{ $emp -> private_code }} <br>
                       @else
-                        *Login to show this* <br>
+                        *Login to see this* <br>
                       @endauth
                       <u>Location (City):</u> {{ $emp -> location -> name}} ({{ $emp -> location -> city }}) <br>
                     </ul>
-                    <br><br>
-                    <a class="btn btn-primary" href="{{ route('employee-edit', $emp -> id) }}">Edit</a>
-                    <a class="btn btn-danger" href="{{ route('employee-destroy', $emp -> id) }}">Delete</a>
+                    @auth
+                      <br>
+                      <a class="btn btn-primary" href="{{ route('employee-edit', $emp -> id) }}"><i class="fas fa-edit"></i> Edit</a>
+                      <a class="btn btn-danger" href="{{ route('employee-destroy', $emp -> id) }}"><i class="fas fa-trash-alt"></i> Delete</a>
+                    @else
+                      <a class="btn btn-primary" href="{{ route('login') }}">Login</a>
+                    @endauth
                   </div>
               </div>
           </div>
